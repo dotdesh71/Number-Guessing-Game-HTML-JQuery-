@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Number Guessing Game</title>
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Number Guessing Game</h1>
+        <form id="game-form">
+          <div class="field">
+            <label class="label">Enter your guess:</label>
+            <div class="control">
+              <input
+                type="number"
+                class="input"
+                id="player-guess"
+                required
+              />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Range:</label>
+            <div class="control">
+              <div class="select">
+                <select id="range-select">
+                  <option value="10">1 to 10</option>
+                  <option value="100">1 to 100</option>
+                  <option value="1000">1 to 1000</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <button class="button is-link" id="guess-button">
+                Guess
+              </button>
+            </div>
+          </div>
+        </form>
+        <div id="result"></div>
+      </div>
+    </section>
+    <script>
+      $(document).ready(function() {
+        $("#guess-button").click(function(event) {
+          event.preventDefault();
+          var range = parseInt($("#range-select").val());
+          var randomNumber = Math.floor(Math.random() * range) + 1;
+          var playerGuess = parseInt($("#player-guess").val());
+          if (playerGuess === randomNumber) {
+            $("#result").html("Correct! The number was " + randomNumber + ".");
+          } else if (playerGuess < randomNumber) {
+            $("#result").html("Incorrect. The number is higher than " + playerGuess + ".");
+          } else {
+            $("#result").html("Incorrect. The number is lower than " + playerGuess + ".");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
