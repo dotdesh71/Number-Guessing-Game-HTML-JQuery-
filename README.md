@@ -2,9 +2,8 @@
 A simple and easy-to-understand game built with HTML, Bulma, and jQuery. Play the game and test your luck and guessing skills.
 # Objective of the Game
 The objective of the Number Guessing Game is to guess the randomly generated number by the computer within a selected range.
-How to Play
-
-#Follow these simple steps to play the Number Guessing Game:
+# How to Play
+Follow these simple steps to play the Number Guessing Game:
 
    1. Select the range of numbers you want to guess (e.g. 1 to 100).
    2. Enter your guess in the input field.
